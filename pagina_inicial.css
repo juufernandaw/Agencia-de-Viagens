@@ -1,0 +1,9 @@
+header {
+    position: absolute;
+    width: 1443px;
+    height: 108px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+}
