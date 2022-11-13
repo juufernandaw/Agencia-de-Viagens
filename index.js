@@ -3,10 +3,11 @@ const app = express()
 const path = require('path')
 const router = express.Router()
 
+app.use(express.static("public"))
 router.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname+'/index.html'))
 })
 
-app.use('/', router)
+// app.use('/', router)
 	
 app.listen(process.env.port || 8080)
