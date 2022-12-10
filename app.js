@@ -14,7 +14,7 @@ const User = require('./models/User')
 
 // Rota publica
 app.get('/', (req, res) => {
-    res.render("home"); // para direcionar para paginas ejs/html
+    res.render("index"); // para direcionar para paginas ejs/html
 })
 
 app.get('/register', (req, res) => {
