@@ -70,6 +70,7 @@ app.post('/auth/register', async(req, res) => {
     const email = body.mail;
     const password = body.senha;
     const confirmpassword = body.confirmsenha;
+    const viagens = []
 
     // validacoes
     if(!name) {
@@ -105,6 +106,8 @@ app.post('/auth/register', async(req, res) => {
         name,
         email,
         password: passwordHash,
+        viagens
+
     })
     try {
         await user.save()
