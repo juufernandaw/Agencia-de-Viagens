@@ -7,7 +7,8 @@ const jwt = require('jsonwebtoken')
 const app = express()
 
 // Config JSON response
-app.use(express.json())
+app.use(express.json());
+app.use(express.static( "public" ) );
 app.set("view engine", "ejs");
 // Models
 const User = require('./models/User')
