@@ -70,7 +70,6 @@ app.post('/auth/register', async(req, res) => {
     const email = body.mail;
     const password = body.senha;
     const confirmpassword = body.confirmsenha;
-    const viagens = []
 
     // validacoes
     if(!name) {
@@ -106,8 +105,6 @@ app.post('/auth/register', async(req, res) => {
         name,
         email,
         password: passwordHash,
-        viagens
-
     })
     try {
         await user.save()
@@ -180,4 +177,3 @@ mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.2vlgiyx.mongodb
     console.log('Conectou ao banco!')
 })
 .catch((err) => console.log(err))
-
