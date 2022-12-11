@@ -160,8 +160,8 @@ app.post("/auth/login", async (req, res) => {
             secret,
         )
 
-        res.status(200).json({msg: 'Autenticação realizada com sucesso!', token})
-        // res.render("pagina_inicial")
+        //res.status(200).json({msg: 'Autenticação realizada com sucesso!', token})
+        res.render("index");
 
     } catch(err){
         console.log(err)
