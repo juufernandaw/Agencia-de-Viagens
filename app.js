@@ -55,11 +55,13 @@ function checkToken(req, res, next) {
     try{
         const secret = process.env.SECRET
         jwt.verify(token, secret)
+        console.log("testando token")
         next()
 
     } catch(error){
         res.status(400).json({msg: 'Token inválido'})
     }
+    
 }
 
 const bodyParser = require('body-parser')
