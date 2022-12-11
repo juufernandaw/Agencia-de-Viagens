@@ -70,9 +70,11 @@ app.post('/auth/register', async(req, res) => {
     const email = body.mail;
     const password = body.senha;
     const confirmpassword = body.confirmsenha;
+    const viagens = [];
 
     // validacoes
     if(!name) {
+        console.log(name)
         return res.status(422).json({msg: 'O nome é obrigatório'})
     }
 
@@ -105,6 +107,7 @@ app.post('/auth/register', async(req, res) => {
         name,
         email,
         password: passwordHash,
+        viagens,
     })
     try {
         await user.save()
