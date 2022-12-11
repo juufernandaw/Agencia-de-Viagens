@@ -28,13 +28,13 @@ app.get('/login', (req, res) => {
 })
 
 // Rota privada
-app.get("/user/:id", checkToken, async (req, res) => {
+app.get("/user/:id",  checkToken, async (req, res) => {
 
     const id = req.params.id
 
     // check if user exists
     const user = await User.findById(id, '-password')
-
+    
     if (!user) {
         return res.status(404).json({msg: 'Usuário não encontrado!!!!!!!!'})
     }
@@ -44,7 +44,9 @@ app.get("/user/:id", checkToken, async (req, res) => {
 })
 
 function checkToken(req, res, next) {
-
+    console.log(res.body)
+    console.log(req.body)
+    
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(" ")[1]
 
@@ -55,7 +57,6 @@ function checkToken(req, res, next) {
     try{
         const secret = process.env.SECRET
         jwt.verify(token, secret)
-        console.log("testando token")
         next()
 
     } catch(error){
@@ -164,8 +165,8 @@ app.post("/auth/login", async (req, res) => {
             secret,
         )
 
-    return res.json({auth: true, token: token});
-        // res.render("/user/:id");
+    //res.status(200).send({auth: true, token: token, id: user._id});
+    return res.redirect('/user/' + user._id);
 
     } catch(err){
         console.log(err)
