@@ -294,7 +294,7 @@ img
     }
 #pricing .pricing
     {
-        background: #fff;
+        background: rgba(255, 255, 255, 0.973);
     }
 #pricing .active
     {
@@ -306,7 +306,7 @@ img
         background: #006E90;
         color: #fff;
         font-weight: bold;
-        padding: 30px;
+        padding: 0px;
     }
 #pricing .pricing .pricing-title p
     {
@@ -326,7 +326,7 @@ img
 #pricing .pricing .btn
     {
         background: transparent;
-        border: 1px solid #006E90;
+        border: 2px outset #006E90;
         border-radius: 0px;
         color: #006E90;
         font-weight: bold;
