@@ -13,6 +13,7 @@ app.set("view engine", "ejs");
 // Models
 const User = require('./models/User')
 
+
 // Rota publica
 app.get('/', (req, res) => {
     res.render("index"); // para direcionar para paginas ejs/html
@@ -35,10 +36,11 @@ app.get("/user/:id", checkToken, async (req, res) => {
     const user = await User.findById(id, '-password')
 
     if (!user) {
-        return res.status(404).json({msg: 'Usuário não encontrado!'})
+        return res.status(404).json({msg: 'Usuário não encontrado!!!!!!!!'})
     }
 
     res.status(200).json({ user })
+    console.log("BOAAA")
 })
 
 function checkToken(req, res, next) {
@@ -160,8 +162,8 @@ app.post("/auth/login", async (req, res) => {
             secret,
         )
 
-        //res.status(200).json({msg: 'Autenticação realizada com sucesso!', token})
-        res.render("index");
+    return res.json({auth: true, token: token});
+        // res.render("/user/:id");
 
     } catch(err){
         console.log(err)
@@ -171,6 +173,12 @@ app.post("/auth/login", async (req, res) => {
     }
 
 })
+
+
+app.post('/auth/logout', function(req, res) {
+    res.json({ auth: false, token: null });
+})
+
 
 // Credenciais
 const dbUser = process.env.DB_USER
