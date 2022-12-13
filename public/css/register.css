@@ -16,13 +16,18 @@ body {
 }
 
 .title {
-    margin-top: 50px;
     color: var(--black);
+}
+
+.img-register {
+    position: absolute;
+    width: auto;
+    top: 80%;
 }
 
 .container {
     width: 20%;
-    height: 80vh;
+    height: 90vh;
     display: flex;
 }
 
@@ -32,14 +37,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
     background-color: #fff;
     padding: 3rem;
     border-radius: 8px;
+    margin-top: 10%;
 }
 
 .form-header {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
 }
@@ -67,7 +72,7 @@ body {
 .input-box {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.1rem;
+    margin-bottom: 0.5rem;
 }
 
 .input-box input {

@@ -24,96 +24,6 @@ body {
   text-decoration: none;
 }
 
-header{
-  position: fixed;
-  width: 100%;
-  top: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: transparent;
-  padding: 28px 12%;
-  transition: all .50s ease;
-}
-
-.logo{
-  display: flex;
-  align-items: center;
-}
-
-.logo i{
- color:  var(--main-color);
- font-size: 28px;
- margin-right: 3px;
-}
-
-.logo span{
-  color: var(--text-color);
-  font-size: 1.7rem;
-  font-weight: 600;
- }
-
- .navbar{
-  display: flex;
- }
-
- .navbar a{
-  color:var(--text-color) ;
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 5px 0;
-  margin: 0px 30px;
-  transition: all .50s ease;
- }
-
- .navbar a:hover{
-  color:var(--main-color);
- }
-
- .navbar a:active{
-  color:var(--main-color);
- }
-
-.side-main{
-  display: flex;
-  align-items: center;
-}
-
-.side-main a{
-  margin-right: 25px;
-  margin-left: 10px;
-  color:var(--text-color);
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: all .50s ease;
-}
-
-.user{
-  display: flex;
-  align-items: center;
-}
-
-.user i{
-  color:var(--main-color);
-  margin-right: 28px;
-  font-size: 7px;
-}
-
-.side-main a:hover{
-  color:var(--main-color);
-}
-
-#menu-icon{
-  font-size: 35px;
-  color: var(--text-color);
-  cursor: pointer;
-  z-index: 10001;
-  display: none;
-}
-
-
 .login {
   height: 100vh;
   background: var(--input-linear);
@@ -123,7 +33,7 @@ header{
 }
 
 .login__container {
-  min-height: 400px;
+  min-height: 500px;
   width: 300px;
   background-color: var(--white);
   box-sizing: border-box;
@@ -203,6 +113,12 @@ header{
   border-radius: 4px;
   cursor: pointer;
   transition: 0.5s ease;
+}
+
+.img-login {
+  position: absolute;
+  width: auto;
+  top: 65%;
 }
 
 .login__submit:disabled {
