@@ -12,6 +12,9 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const passport = require('passport')
 require("./config/auth")(passport)
+
+app.set("view engine", "ejs");
+
 function ehAutenticado(req, res, next){
     if(req.isAuthenticated()){
         return next()
@@ -37,14 +40,15 @@ function ehAutenticado(req, res, next){
             res.locals.error_msg = req.flash("error_msg")
             res.locals.error = req.flash("error") //essa msg não tá sendo exibida ainda 
             res.locals.user = req.user || null //armazena os dados do usuário logado em uma varíavel global
+            
             next()
         })
     //Body Parser
         app.use(bodyParser.urlencoded({extended: true}))
         app.use(bodyParser.json())
     //Handlebars
-        app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
-        app.set('view engine', 'handlebars')
+        //app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
+        //app.set('view engine', 'handlebars')
     // Public
         app.use(express.static(path.join(__dirname + '/public')))
 
@@ -54,7 +58,15 @@ function ehAutenticado(req, res, next){
     })
 
     app.get('/inicio', ehAutenticado, function(req, res){
-        res.sendFile(path.join(__dirname+'/frontend/view/inicio.html'))  
+        const User1 = {
+            id: req.user._id,
+            nome: req.user.nome,
+            email: req.user.email,
+            viagens: req.user.viagens
+        } 
+        console.log(req.user)
+        res.render("inicio", {usuarioLogado: User1})
+        //res.sendFile(path.join(__dirname+'/frontend/view/inicio.html'))  
     })
     
     app.get('/login', function(req, res){
