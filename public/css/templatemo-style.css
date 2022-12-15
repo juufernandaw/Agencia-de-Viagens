@@ -345,12 +345,14 @@ img
 /* start download */
 #download
     {
+        font-size: 15px;
+        text-align: left;
         padding-top: 80px;
         padding-bottom: 80px;
     }
 #download h2
     {
-        padding-bottom: 20px;
+        padding-bottom: 40px;
     }
 #download .btn
     {
