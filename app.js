@@ -133,21 +133,37 @@ function ehAutenticado(req, res, next){
         }
     })
 
-    /* app.post('/usuarios/salvarjohns', function(req, res){
-        const query = {
-            //aqi vai o identificador do usuario, pra buscar na query
+    app.post('/usuarios/atualizar', async (req, res) =>{
+
+        const id = req.user._id
+
+        const dados_novos = {
+            nome: req.body.user_name,
+            email: req.body.user_mail,
         }
-        const newEntry = {
-            num_johns: req.body.num_johns,
-            num_autoclicker: req.body.num_autoclicker,
-            num_farm: req.body.num_farm
-        }
-        Usuario.update(query, newEntry).save().then(() => {
+        console.log("oi julia")
+        console.log(id)
+        console.log(dados_novos)
+        /* Usuario.update(query, newEntry).save().then(() => {
             console.log('Usuario atualizado com  sucesso')
         }).catch((err) => {
             console.log('Ocorreu um erro ao atualizar'+err)
-        })
-    }) */
+        }) */
+
+        try {
+            const updatedPerson = await Usuario.updateOne({ _id: id }, dados_novos)
+        
+            if (updatedPerson.matchedCount === 0) {
+              res.status(422).json({ message: 'Usuário não encontrado!' })
+              return
+            }
+        
+            req.flash("success_msg", "Usuário atualizado com sucesso")
+            res.redirect("/inicio")
+          } catch (error) {
+            res.status(500).json({ erro: error })
+          }
+    })
 
     app.post('/usuarios/logar', function(req, res, next){
         passport.authenticate("local", {

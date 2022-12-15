@@ -10,5 +10,9 @@ const Usuario = new Schema({
     viagens: {type: []}
 })
 
+/* function update(id, novos_dados){
+    Usuario.nome = novos_dados["nome"];
+    Usuario.email = novos_dados["email"]
+} */
 //Collection (como se fosse uma tabela)
 mongoose.model('users', Usuario)
