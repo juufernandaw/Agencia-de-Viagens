@@ -81,10 +81,6 @@ function ehAutenticado(req, res, next){
         res.sendFile(path.join(__dirname+'/frontend/view/register.html'))
     })
 
-    /* app.get('/tela_ranking.html', ehAutenticado, function(req, res){
-        res.sendFile(path.join(__dirname+'/frontend/view/tela_ranking.html'))
-    }) */
-
     app.post('/usuarios/cadastrar', function(req, res){
         var erros = []
 
