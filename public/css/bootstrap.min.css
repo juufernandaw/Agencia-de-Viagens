@@ -3303,7 +3303,7 @@ table th[class*=col-] {
 }
 .box ul:hover li
 {
-    opacity: 0.2;
+ 
 }
 .box ul li:hover
 {
@@ -3312,7 +3312,7 @@ table th[class*=col-] {
     background: #006E90;
     box-shadow: 0 5px 25px rgba(0,0,0,.2);
     color: #fff;
-    opacity: 0.2;
+
 }
 .box ul li span
 {
