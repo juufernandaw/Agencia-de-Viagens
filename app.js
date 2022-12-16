@@ -1,4 +1,3 @@
-//Carregando módulos
 require('dotenv').config()
 const express = require('express')
 const handlebars = require('express-handlebars')
@@ -19,12 +18,10 @@ function ehAutenticado(req, res, next){
     if(req.isAuthenticated()){
         return next()
     }
-    req.flash("error_msg", "Você deve estar logado para entrar aqui") //exibir a mensagem
+    //req.flash("error_msg", "Você deve estar logado para entrar aqui") //exibir a mensagem
+    //print("Você deve estar logado para entrar aqui")
     res.redirect("/")
 }
-
-
-//Configurações
     //Sessão
         app.use(session({
             secret: "SDHSJDAKSDHJD",
@@ -33,23 +30,19 @@ function ehAutenticado(req, res, next){
         }))
         app.use(passport.initialize())
         app.use(passport.session())
-        app.use(flash())
-    //Middleware 
+        //app.use(flash())
+
         app.use((req,res,next) => {
-            res.locals.success_msg = req.flash("sucess_msg")
-            res.locals.error_msg = req.flash("error_msg")
-            res.locals.error = req.flash("error") //essa msg não tá sendo exibida ainda 
+            //res.locals.success_msg = req.flash("sucess_msg")
+            //res.locals.error_msg = req.flash("error_msg")
+            //res.locals.error = req.flash("error") //essa msg não tá sendo exibida ainda 
             res.locals.user = req.user || null //armazena os dados do usuário logado em uma varíavel global
             
             next()
         })
-    //Body Parser
+
         app.use(bodyParser.urlencoded({extended: true}))
         app.use(bodyParser.json())
-    //Handlebars
-        //app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
-        //app.set('view engine', 'handlebars')
-    // Public
         app.use(express.static(path.join(__dirname + '/public')))
 
 //Rotas
@@ -66,7 +59,6 @@ function ehAutenticado(req, res, next){
         } 
         console.log(req.user)
         res.render("inicio", {usuarioLogado: User1})
-        //res.sendFile(path.join(__dirname+'/frontend/view/inicio.html'))  
     })
     
     app.get('/login', function(req, res){
@@ -96,8 +88,12 @@ function ehAutenticado(req, res, next){
             erros.push({texto: "Senha inválida"})
         }
 
+        if(req.body.senha != req.body.confirmsenha){
+            erros.push({texto: "As senhas não"})
+        }
+
         if(req.body.senha.length < 4){
-            req.flash("error_msg", "SENHA CURTA")
+            //req.flash("error_msg", "SENHA CURTA")
             erros.push({texto: "Senha muito curta"})
         }
 
@@ -106,9 +102,9 @@ function ehAutenticado(req, res, next){
             //res.render("usuarios/cadastar", {erros: erros})
             //precisamos fazer com que a tela entrar aponte esses erros ao usuario
         } else {
-            Usuario.findOne({email: req.body.email}).then((usuario) => {
+            Usuario.findOne({email: req.body.mail}).then((usuario) => {
                 if(usuario){
-                    req.flash("error_msg", "Já existe um usuário cadastrado com esse email")
+                    //req.flash("error_msg", "Já existe um usuário cadastrado com esse email")
                     res.redirect("/register")
                     //exibir a menesagem de erro
                 } else {
@@ -119,14 +115,16 @@ function ehAutenticado(req, res, next){
                     }).save().then(() => {
                         console.log("Usúario salvo com sucesso")
                     }).catch((err) => {
+                        res.status(422).json({ message: 'OCORREU UM ERORORRO!' })
                         console.log("Ocorreu um erro ao salvar o usúario"+err)
                     })
-                    req.flash("success_msg", "Usuário logado com sucesso")
+                    //req.flash("success_msg", "Usuário logado com sucesso")
+                    
                     res.redirect("/login")
                     //exibir a mensagem de sucesso
                 }
             }).catch((err) => {
-                req.flash("error_msg", "Houve um erro ao cadastrar")
+                //req.flash("error_msg", "Houve um erro ao cadastrar")
                 res.redirect("/register")
                 //exibir a mensagem de erro  
             })
