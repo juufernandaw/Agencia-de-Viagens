@@ -44,15 +44,13 @@
 					<a href="#" class="navbar-brand">Sonho Serrano</a>
 				</div>
 				<div class="collapse navbar-collapse">
+					<h1 class="bem-vindo">Bem-vindo(a) <%= usuarioLogado.nome %>!</h1>
 					<ul class="nav navbar-nav navbar-right text-uppercase">
 						<li><a href="#home">Quem Somos</a></li>
 						<li><a href="#feature">Serviços Oferecidos</a></li>
 						<li><a href="#pricing">Pacotes</a></li>
 						<li><a href="#download">Editar Cadastro</a></li>
 						<li><a href="/register">Minhas Viagens</a></li>
-						<li><%= usuarioLogado.id %>
-						<li><%= usuarioLogado.nome %></li>
-						<li><%= usuarioLogado.email %></li>
 					</ul>
 			</div>
 		</nav>

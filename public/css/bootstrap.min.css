@@ -1667,6 +1667,17 @@ mark {
     background-color: #fcf8e3
 }
 
+.bem-vindo {
+    margin-top: 1%;
+    font-family: 'Licorice-Regular';
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #006E90;
+}
+
 .text-left {
     text-align: left
 }
