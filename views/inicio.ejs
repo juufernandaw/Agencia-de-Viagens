@@ -178,6 +178,7 @@
 					</div>
 					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
 						<div class="pricing text-uppercase">
+							<form action="/usuarios/viagens" method="POST">
 							<div class="pricing-title">
 								<img src="images/urubici.webp" class="img-responsive" alt="feature img">
 							</div>
@@ -189,7 +190,7 @@
 								<li>Suíte aconchegante</li>
 								<li>Café da manhã incluso</li>
 							</ul>
-							<button class="btn btn-primary text-uppercase">Eu quero!</button>
+							<button class="btn btn-primary text-uppercase" name="viagem1" type="submit">Eu quero!</button>
 						</div>
 					</div>
 					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
@@ -205,7 +206,8 @@
 								<li>Suíte aconchegante</li>
 								<li>Café da manhã incluso</li>
 							</ul>
-							<button class="btn btn-primary text-uppercase">Eu quero!</button>
+						-->	<button class="btn btn-primary text-uppercase" name="viagem2" type="submit">Eu quero!</button>
+
 						</div>
 					</div>
 					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
@@ -213,6 +215,11 @@
 							<div class="pricing-title">
 								<img src="images/serra_do_rio_do_rastro.jpg" class="img-responsive" alt="feature img">
 							</div>
+							<!-- <script>
+								function adicionarViagem(viagem){
+									<%usuarioLogado %>
+								}
+							</script> -->
 							<ul>
 								<h4>Serra do Rio do Rastro</h4>
 								<li>Roteiro para 2 dias</li>
@@ -220,8 +227,13 @@
 								<li>Hospedagem</li>
 								<li>Suíte aconchegante</li>
 								<li>Café da manhã incluso</li>
+							
+								
+<!-- 							<button class="btn btn-primary text-uppercase" id="viagem3" onclick="adicionarViagem({"local": "Serra do Rio do Rastro", "qtd_pessoas": 2, "data_ida": "20/09/2023", "data_volta": "24/09/2023", "guia_turistico": true, "hospedagem": true, "tipo_hospedagem": "suite", "cafe_da_manha": true } )">Eu quero!</button>
+-->								<button class="btn btn-primary text-uppercase" name="viagem3" type="submit">Eu quero!</button>
+								
 							</ul>
-							<button class="btn btn-primary text-uppercase">Eu quero!</button>
+						</form>
 						</div>
 					</div>
 				</div>

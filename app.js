@@ -133,6 +133,28 @@ function ehAutenticado(req, res, next){
         }
     })
 
+
+    app.post('/usuarios/compartilhar', async (req, res) =>{
+
+        const viagem = {$push: {viagens: req.body.viagem}}     //pegar o name da viagem
+        const mail = req.body.email
+        
+
+        try {
+            const updatedPerson = await Usuario.updateOne({ email: mail }, viagem)
+        
+            if (updatedPerson.matchedCount === 0) {
+              res.status(422).json({ message: 'Usuário não encontrado!' })
+              return
+            }
+        
+            req.flash("success_msg", "Adicionada viagem com sucesso")
+            res.redirect("/inicio")
+          } catch (error) {
+            res.status(500).json({ erro: error })
+          }
+    })
+
     app.post('/usuarios/atualizar', async (req, res) =>{
 
         const id = req.user._id
@@ -141,14 +163,6 @@ function ehAutenticado(req, res, next){
             nome: req.body.user_name,
             email: req.body.user_mail,
         }
-        console.log("oi julia")
-        console.log(id)
-        console.log(dados_novos)
-        /* Usuario.update(query, newEntry).save().then(() => {
-            console.log('Usuario atualizado com  sucesso')
-        }).catch((err) => {
-            console.log('Ocorreu um erro ao atualizar'+err)
-        }) */
 
         try {
             const updatedPerson = await Usuario.updateOne({ _id: id }, dados_novos)
@@ -164,6 +178,66 @@ function ehAutenticado(req, res, next){
             res.status(500).json({ erro: error })
           }
     })
+
+    
+    app.post('/usuarios/viagens', async (req, res) =>{
+
+        const id = req.user._id
+
+        const v1 = req.body.viagem1
+        const v2 = req.body.viagem2
+        const v3 = req.body.viagem3
+        var dict = new Map()
+        if (v1 != undefined) {
+            dict.set("local", "Urubici")
+            dict.set("qtd_pessoas", 4)
+            dict.set("data_ida", "05/10/2023")
+            dict.set("data_volta", "09/10/2023")
+            dict.set("guia_turistico", false)
+            dict.set("hospedagem", true)
+            dict.set("cafe_da_manha", true)
+        }
+
+        else if (v2 != undefined) {
+            dict.set("local", "Cascata do Avencal")
+            dict.set("qtd_pessoas", 2)
+            dict.set("data_ida", "07/04/2023")
+            dict.set("data_volta", "12/04/2023")
+            dict.set("guia_turistico", true)
+            dict.set("hospedagem", true)
+            dict.set("cafe_da_manha", false)
+        }
+
+        else {
+            dict.set("local", "Serra do Rio do Rastro")
+            dict.set("qtd_pessoas", 2)
+            dict.set("data_ida", "20/09/2023")
+            dict.set("data_volta", "24/09/2023")
+            dict.set("guia_turistico", true)
+            dict.set("hospedagem", true)
+            dict.set("cafe_da_manha", true)
+        }
+        
+
+        const query = {
+            $push: {viagens: dict}
+        }
+
+        try {
+            const updatedPerson = await Usuario.updateOne({ _id: id }, query)
+        
+            if (updatedPerson.matchedCount === 0) {
+              res.status(422).json({ message: 'Usuário não encontrado!' })
+              return
+            }
+        
+            req.flash("success_msg", "Viagem adicionada")
+            res.redirect("/inicio")
+          } catch (error) {
+            res.status(500).json({ erro: error })
+          }
+    })
+
 
     app.post('/usuarios/logar', function(req, res, next){
         passport.authenticate("local", {
