@@ -3251,7 +3251,6 @@ table th[class*=col-] {
 
 @import url('https://fonts.googlepics.com/css?family=poppins:300,400');
 *
-#minhas-viagens
 {
     margin: 0;
     padding: 0;
@@ -3260,51 +3259,81 @@ table th[class*=col-] {
 }
 #minhas-viagens body
 {
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #f6f6f6;
 }
+#minhas-viagens
+{
+    margin-left: 190px;
+    margin-right: auto;
+    width: 6em;
+}
 .box
 {
-    width: 300px;
+    width: 980px;
+    border-bottom: 20px solid #006E90;
+    border-radius: 10px;
+    margin-bottom: 70%;
 }
 .box h2
 {
     color:#fff;
-    background: #03a9f4;
+    background: #006E90;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: 700;
-    border-top-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 10px;
 }
-
-#minhas-viagens fieldset {
-    min-width: 0;
-    padding: 0;
-    margin: 0;
-    border: 0
+.box ul
+{
+    position: relative;
+    background: #fff;
 }
-
-#minhas-viagens legend {
-    display: block;
+.box ul li
+{
+    list-style: none;
+    padding: 10px;
     width: 100%;
-    padding: 0;
-    margin-bottom: 20px;
-    font-size: 21px;
-    line-height: inherit;
-    color: #333;
-    border: 0;
-    border-bottom: 1px solid #e5e5e5
+    background: #fff;
+    box-shadow: 0 5px 25px rgba(0,0,0,.1);
+    transition: transform 0.5s;
 }
-
-#minhas-viagens label {
+.box ul:hover li
+{
+    opacity: 0.2;
+}
+.box ul li:hover
+{
+    transition: scale(1.1);
+    z-index: 100;
+    background: #006E90;
+    box-shadow: 0 5px 25px rgba(0,0,0,.2);
+    color: #fff;
+    opacity: 0.2;
+}
+.box ul li span
+{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #006E90;
+    color: #fff;
     display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 700
+    border-radius: 50%;
+    margin-right: 10;
+    font-size: 12px;
+    font-weight: 600;
+    transform: translateY(-20px);
+}
+.box ul li:hover span 
+{
+    background: #fff;
+    color: #006E90;
+
 }
 
 input[type=search] {
