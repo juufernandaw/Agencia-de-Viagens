@@ -73,6 +73,10 @@ function ehAutenticado(req, res, next){
         res.sendFile(path.join(__dirname+'/frontend/view/login.html'))
     })
 
+    app.get('/minhas_viagens', ehAutenticado, function(req, res){
+        res.sendFile(path.join(__dirname+'/frontend/view/minhas_viagens.html'))
+    })
+
     app.get('/register', function(req, res){
         res.sendFile(path.join(__dirname+'/frontend/view/register.html'))
     })

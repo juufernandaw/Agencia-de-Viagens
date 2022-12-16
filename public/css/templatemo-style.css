@@ -345,6 +345,7 @@ img
 /* start download */
 #download
     {
+        height: 20;
         font-size: 15px;
         text-align: left;
         padding-top: 80px;
