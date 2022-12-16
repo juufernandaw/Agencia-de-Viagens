@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/login.css">
     <title>Cadastre-se</title>
+    <script>
+        console.log("eieieie")
+        console.log(res.status)
+        if ((res.status!=200) || (res.status!=302)) {
+            window.alert("ERROOOOOOU")
+        }
+    </script>
 </head>
 
 <body>
@@ -19,7 +26,6 @@
                         <h1>Registrar</h1>
                     </div>
                 </div>
-
                 <div class="input-group">
                     <form id="userform" action="/usuarios/cadastrar" method="POST">
                         <div class="input-box">
