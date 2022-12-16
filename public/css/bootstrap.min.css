@@ -3249,30 +3249,91 @@ table th[class*=col-] {
     }
 }
 
-fieldset {
-    min-width: 0;
-    padding: 0;
+@import url('https://fonts.googlepics.com/css?family=poppins:300,400');
+*
+{
     margin: 0;
-    border: 0
-}
-
-legend {
-    display: block;
-    width: 100%;
     padding: 0;
-    margin-bottom: 20px;
-    font-size: 21px;
-    line-height: inherit;
-    color: #333;
-    border: 0;
-    border-bottom: 1px solid #e5e5e5
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-
-label {
+#minhas-viagens body
+{
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f6f6f6;
+}
+#minhas-viagens
+{
+    margin-left: 22%;
+    margin-right: auto;
+    width: 6em;
+}
+.box
+{
+    width: 1000%;
+    border-bottom: 20px solid #006E90;
+    border-radius: 10px;
+    margin-bottom: 70%;
+}
+.box h2
+{
+    color:#fff;
+    background: #006E90;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 10px;
+}
+.box ul
+{
+    position: relative;
+    background: #fff;
+}
+.box ul li
+{
+    list-style: none;
+    padding: 10px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 5px 25px rgba(0,0,0,.1);
+    transition: transform 0.5s;
+}
+.box ul:hover li
+{
+    opacity: 0.2;
+}
+.box ul li:hover
+{
+    transition: scale(1.1);
+    z-index: 100;
+    background: #006E90;
+    box-shadow: 0 5px 25px rgba(0,0,0,.2);
+    color: #fff;
+    opacity: 0.2;
+}
+.box ul li span
+{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #006E90;
+    color: #fff;
     display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 700
+    border-radius: 50%;
+    margin-right: 10;
+    font-size: 12px;
+    font-weight: 600;
+    transform: translateY(-20px);
+}
+.box ul li:hover span 
+{
+    background: #fff;
+    color: #006E90;
+
 }
 
 input[type=search] {
@@ -3316,6 +3377,27 @@ output {
     font-size: 14px;
     line-height: 1.42857143;
     color: #555
+}
+
+.form-control-viagens {
+    display: block;
+    width: 540%;
+    height: 10%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 140%;
+    margin-left: 220%;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 }
 
 .form-control {
