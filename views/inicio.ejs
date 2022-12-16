@@ -50,9 +50,6 @@
 						<li><a href="#pricing">Pacotes</a></li>
 						<li><a href="#download">Editar Cadastro</a></li>
 						<li><a href="/register">Minhas Viagens</a></li>
-						<li><%= usuarioLogado.id %>
-						<li><%= usuarioLogado.nome %></li>
-						<li><%= usuarioLogado.email %></li>
 					</ul>
 			</div>
 		</nav>
@@ -64,7 +61,7 @@
 					<div class="row">
 						<div class="col-md-1"></div>
 						<div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
-							<h1 class="text-upper">Bem-Vindo a Sonho Serrano!</h1>
+							<h1 class="text-upper">Bem-vindo(a) <%= usuarioLogado.nome %>!</h1>
 							<h3 class="text-upper">Sua agência da Serra Catarinense</h3>
 							<p class="tm-white">A Sonho Serrano é uma agência voltada para que você consiga ter as melhores experiências que cabem no seu bolso. Venha embarcar com a gente e descubra que tudo é possivel, só basta você acreditar.</p>
 							<img src="images/logo.png" class="img-responsive" alt="Imagem logo Sonho Serrano">
@@ -246,25 +243,25 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
-						<h3 class="text-uppercase">Atualize seus dados!</h3>
+						<h3 class="text-uppercase">Atualize seus dados de cadastro!</h3>
 						<form id="user_update" action="/usuarios/atualizar" method="POST">
 							<div class="input-box">
 								<label for="firstname">Nome</label>
-								<input id="firstname" type="text" name="user_name" value="<%= usuarioLogado.nome %>" placeholder="Digite nome compelto" required>
+								<input class="form-control" id="firstname" type="text" name="user_name" value="<%= usuarioLogado.nome %>" placeholder="Digite nome compelto" required>
 							</div>
 	
 							<div class="input-box">
 								<label for="email">E-mail</label>
-								<input id="email" type="email" name="user_mail" value="<%= usuarioLogado.email %>" placeholder="Digite seu e-mail" required>
+								<input class="form-control" id="email" type="email" name="user_mail" value="<%= usuarioLogado.email %>" placeholder="Digite seu e-mail" required>
 							</div>
 	
-							<div class="continue-button">
-								<button class="button" type="submit">Atualizar</button>
+							<div>
+								<button class="btn btn-primary text-uppercase" type="submit">Atualizar</button>
 							</div>
 						</form>
 					</div>
 					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
-						<img src="images/pessoas.jpg" class="img-responsive" alt="feature img">
+						<img src="images/atualizar.jpg" class="img-responsive" alt="atualizar dados">
 					</div>
 				</div>
 			</div>
