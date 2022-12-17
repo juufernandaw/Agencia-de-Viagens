@@ -260,10 +260,14 @@
 			<div class="box">
 				<h2>Minhas viagens</h2>
 				<ul>
-					<li><span>1°</span> item</li>
+					<% let viagens = usuarioLogado.viagens %>
+					<% for(var i=0; i < viagens.length; i++) { %>
+						<li><span>1°</span> item</li>
+					<% } %>
+					<!-- <li><span>1°</span> item</li>
 					<li><span>2°</span> item</li>
 					<li><span>3°</span> item</li>
-					<li><span>4°</span> item</li>
+					<li><span>4°</span> item</li> -->
 				</ul>
 			</div>
 			<div class="input-box">
