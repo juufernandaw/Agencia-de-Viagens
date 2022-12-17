@@ -3252,15 +3252,15 @@ table th[class*=col-] {
     font-family: 'Poppins', sans-serif;
 }
 
-#minhas-viagens body {
-    /*display: flex;*/
+#minhasViagens body {
+    /* //display: flex; */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #f6f6f6;
 }
 
-#minhas-viagens {
+#minhasViagens {
     margin-left: 22%;
     margin-right: auto;
     width: 6em;
@@ -3271,31 +3271,36 @@ table th[class*=col-] {
     border-bottom: 20px solid #006E90;
     border-radius: 10px;
     margin-bottom: 70%;
+
 }
 
+
+
 @media (max-width:440px) {
-    #minhas-viagens {
-        margin-left: 40px;
-        margin-right: 100px;
+    
+    #minhasViagens {
+         margin-left: 20px;
+        margin-right: 50px;
     }
 
     .box {
-        top: 50%;
-        left: 50%;
-        width: 370px;
+        position: relative;
+        margin-right: 50px;
+        width: 300px;
     }
 
-    #bt-add-viagem{
-        margin-left: 40px;
-        margin-right: 100px; 
-        left: 50%;
-        
+    #formControlViagens {
+        background-color: red;
+        margin-right: 15px;
     }
-    #select-viagens{
+
+    #btn btn-primary text-uppercase {
         margin-left: 40px;
-        margin-right: 100px; 
+        margin-right: 100px;
         left: 50%;
     }
+
+
 }
 
 .box h2 {
@@ -3398,7 +3403,7 @@ output {
     color: #555
 }
 
-.form-control-viagens {
+#formControlViagens {
     display: block;
     width: 540%;
     height: 10%;
@@ -5379,6 +5384,13 @@ textarea.input-group-sm>.input-group-btn>.btn {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px
+}
+
+@media(min-width: 440px) {
+    .navbar-toggle {
+        margin-right: 0px;
+    }
+
 }
 
 .navbar-toggle:focus {
