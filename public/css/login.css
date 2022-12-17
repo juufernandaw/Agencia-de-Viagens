@@ -118,6 +118,8 @@ body {
   position: absolute;
   width: auto;
   top: 65%;
+  object-fit: cover;
+  object-position: bottom;
 }
 
 .login__submit:disabled {
