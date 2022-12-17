@@ -3277,7 +3277,6 @@ table th[class*=col-] {
 
 
 @media (max-width:440px) {
-    
     #minhasViagens {
          margin-left: 20px;
         margin-right: 50px;
@@ -3289,17 +3288,11 @@ table th[class*=col-] {
         width: 300px;
     }
 
-    #formControlViagens {
-        background-color: red;
-        margin-right: 15px;
-    }
-
     #btn btn-primary text-uppercase {
         margin-left: 40px;
         margin-right: 100px;
         left: 50%;
     }
-
 
 }
 
