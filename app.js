@@ -130,10 +130,8 @@ function ehAutenticado(req, res, next){
 
     app.post('/usuarios/compartilhar', async (req, res) =>{
         const mail = req.body.usuarioCompartilhado
-        const pss = (req.body.selectViagens)
-        console.log(pss)
-        console.log(pss["pessoas"])
-        const psss = pss.push(mail)
+        const pss = JSON.parse(req.body.selectViagens)
+        const pessoas = pss["pessoas"].push(mail)
         const viagem = {$push: {viagens: JSON.stringify(pss)}}
         const pessoa = {$push: {pessoas: mail}}
         const id = req.user._id
