@@ -146,7 +146,7 @@ function ehAutenticado(req, res, next){
               return
             }
         
-            req.flash("success_msg", "Adicionada viagem com sucesso")
+            //req.flash("success_msg", "Adicionada viagem com sucesso")
             res.redirect("/inicio")
           } catch (error) {
             res.status(500).json({ erro: error })
@@ -170,7 +170,7 @@ function ehAutenticado(req, res, next){
               return
             }
         
-            /* req.flash("success_msg", "Usuário atualizado com sucesso") */
+            // req.flash("success_msg", "Usuário atualizado com sucesso")
             res.redirect("/inicio")
           } catch (error) {
             res.status(500).json({ erro: error })
@@ -229,7 +229,7 @@ function ehAutenticado(req, res, next){
               return
             }
         
-            /* req.flash("success_msg", "Viagem adicionada") */
+            // req.flash("success_msg", "Viagem adicionada")
             res.redirect("/inicio")
           } catch (error) {
             res.status(500).json({ erro: error })

@@ -1,11 +1,3 @@
-/*
-
-Boxer Template
-
-http://www.templatemo.com/tm-446-boxer
-
-*/
-
 @font-face {
     font-family: "Licorice-Regular";
     src: url("fonts/Licorice-Regular.ttf");
@@ -26,7 +18,6 @@ body
 	color: #fff;
 }
 
-/* start h1 group */
 h1 { 
     margin-top: 0;
     margin-bottom: 25px; 
@@ -38,17 +29,15 @@ h4
     {
         font-weight: bold;
     }
-/* end h1 group */
+
 p { line-height: 1.6em; }
-/* img */
+
 img
     {
         max-width: 100%;
         height: auto;
     }
-/* img */
 
-/* overlay */
 .overlay 
     {
        width: 100%;
@@ -57,9 +46,7 @@ img
        padding-top: 90px;
        padding-bottom: 90px;
     }  
-/* over lay */
 
-/* start page container */
 @media (min-width: 768px) {
   .container {
     width: 700px;
@@ -75,9 +62,7 @@ img
     width: 1000px;
   }
 }
-/* end page container */
 
-/* start preloader */
 .preloader
     {
         position: fixed;
@@ -92,7 +77,6 @@ img
         -webkit-flex-flow: row nowrap;
             -ms-flex-flow: row nowrap;
                 flex-flow: row nowrap;
-        /*justify-content: center;*/
         -webkit-align-items: center;
             -ms-flex-align: center;
                 align-items: center;
@@ -133,9 +117,7 @@ img
   100% {
             -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
                     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
-/* end preloader */
 
-/* start navigation */
 .navbar-default
     {
         background: #fff;
@@ -179,9 +161,7 @@ img
     }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus { background-color: transparent }
-/* end navigation */
-
-/* start home */       
+       
 #home
     {
     background: url('../images/serra3.jpg') no-repeat;
@@ -203,9 +183,7 @@ img
         display: inline-block;
         margin-top: 30px;
     }
-/* end home */
 
-/* start divider */
 #divider
     {
         text-align: center;
@@ -221,9 +199,7 @@ img
     {
         font-size: 20px;
     }
-/* end divider */
 
-/* start feature */
 #feature
     {
         background: #f8f8f8;
@@ -250,9 +226,7 @@ img
         text-align: center;
         margin-right: 20px;
     }
-/* end feature */
 
-/* start feature1 */
 #feature1
     {
         padding-top: 60px;
@@ -278,9 +252,7 @@ img
         text-align: center;
         margin-right: 20px;
     }
-/* end feature1 */
 
-/* start pricing */
 #pricing
     {
         background: #f8f8f8;
@@ -340,9 +312,7 @@ img
     background: #006E90;
     color: #fff;
 }
-/* end pricing */
 
-/* start download */
 #download
     {
         height: 20;
@@ -362,9 +332,7 @@ img
         margin-top: 20px;
         padding: 10px 40px 10px 40px;
     }
-/* end download */
 
-/* start contact */
 #contact
     {
         background: url('../images/registrar.jpg') no-repeat;
@@ -415,9 +383,7 @@ img
 #contact input[type="submit"]:hover {
     background: #107DB6;
 }
-/* end contact */
 
-/* start footer */
 footer
     {
         background: #fff;
@@ -425,7 +391,6 @@ footer
         text-align: center;
         padding: 20px;
     }
-/* end footer */
 
 @media screen and ( max-width: 991px ) {
     .templatemo-box {
@@ -457,11 +422,10 @@ footer
         padding-top: 40px;
     }
 }
-/* start media 360 */
+
 @media screen and ( max-width: 360px ){
     .pricing
         {
             padding-bottom: 40px;
         }
 }
-/* end media 360 */
