@@ -3244,72 +3244,97 @@ table th[class*=col-] {
 }
 
 @import url('https://fonts.googlepics.com/css?family=poppins:300,400');
-*
-{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-#minhas-viagens body
-{
+
+#minhas-viagens body {
     /*display: flex;*/
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #f6f6f6;
 }
-#minhas-viagens
-{
+
+#minhas-viagens {
     margin-left: 22%;
     margin-right: auto;
     width: 6em;
 }
-.box
-{
+
+.box {
     width: 1000%;
     border-bottom: 20px solid #006E90;
     border-radius: 10px;
     margin-bottom: 70%;
 }
-.box h2
-{
-    color:#fff;
+
+@media (max-width:440px) {
+    #minhas-viagens {
+        margin-left: 40px;
+        margin-right: 100px;
+    }
+
+    .box {
+        top: 50%;
+        left: 50%;
+        width: 370px;
+    }
+
+    #bt-add-viagem{
+        margin-left: 40px;
+        margin-right: 100px; 
+        left: 50%;
+        
+    }
+    #select-viagens{
+        margin-left: 40px;
+        margin-right: 100px; 
+        left: 50%;
+    }
+}
+
+.box h2 {
+    color: #fff;
     background: #006E90;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: 700;
     border-radius: 10px;
 }
-.box ul
-{
+
+.box ul {
     position: relative;
     background: #fff;
 }
-.box ul li
-{
+
+.box ul li {
     list-style: none;
     padding: 10px;
     width: 100%;
     background: #fff;
-    box-shadow: 0 5px 25px rgba(0,0,0,.1);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
     transition: transform 0.5s;
 }
-.box ul:hover li
-{
+
+.box ul:hover li {
     opacity: 0.2;
 }
-.box ul li:hover
-{
+
+.box ul li:hover {
     transition: scale(1.1);
     z-index: 100;
     background: #006E90;
-    box-shadow: 0 5px 25px rgba(0,0,0,.2);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
     color: #fff;
     opacity: 0.2;
 }
-.box ul li span
-{
+
+.box ul li span {
     width: 20px;
     height: 20px;
     text-align: center;
@@ -3323,8 +3348,8 @@ table th[class*=col-] {
     font-weight: 600;
     transform: translateY(-20px);
 }
-.box ul li:hover span 
-{
+
+.box ul li:hover span {
     background: #fff;
     color: #006E90;
 
