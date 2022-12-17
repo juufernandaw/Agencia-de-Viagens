@@ -134,19 +134,19 @@ function ehAutenticado(req, res, next){
 
     app.post('/usuarios/compartilhar', async (req, res) =>{
 
-        const viagem = {$push: {viagens: req.body.viagem}}     //pegar o name da viagem
-        const mail = req.body.email
-        
+        const viagem = {$push: {viagens: req.body.viagem}}
+        const mail = req.body.usuarioCompartilhado
+        const pessoa = {$push: {pessoas: mail}} 
+        const id = req.user._id
 
         try {
-            const updatedPerson = await Usuario.updateOne({ email: mail }, viagem)
-        
-            if (updatedPerson.matchedCount === 0) {
+            const updatedPersonAmigo = await Usuario.updateOne({ email: mail }, viagem)
+            const updatePerson = await Usuario.updateOne({ _id: id }, pessoa)
+            if ((updatedPersonAmigo.matchedCount === 0) || (updatedPerson.matchedCount === 0)) {
               res.status(422).json({ message: 'Usuário não encontrado!' })
               return
             }
         
-            //req.flash("success_msg", "Adicionada viagem com sucesso")
             res.redirect("/inicio")
           } catch (error) {
             res.status(500).json({ erro: error })
@@ -188,32 +188,32 @@ function ehAutenticado(req, res, next){
         var dict = new Map()
         if (v1 != undefined) {
             dict.set("local", "Urubici")
-            dict.set("qtd_pessoas", 4)
             dict.set("data_ida", "05/10/2023")
             dict.set("data_volta", "09/10/2023")
             dict.set("guia_turistico", false)
             dict.set("hospedagem", true)
             dict.set("cafe_da_manha", true)
+            dict.set("pessoas", [])
         }
 
         else if (v2 != undefined) {
             dict.set("local", "Cascata do Avencal")
-            dict.set("qtd_pessoas", 2)
             dict.set("data_ida", "07/04/2023")
             dict.set("data_volta", "12/04/2023")
             dict.set("guia_turistico", true)
             dict.set("hospedagem", true)
             dict.set("cafe_da_manha", false)
+            dict.set("pessoas", [])
         }
 
         else {
             dict.set("local", "Serra do Rio do Rastro")
-            dict.set("qtd_pessoas", 2)
             dict.set("data_ida", "20/09/2023")
             dict.set("data_volta", "24/09/2023")
             dict.set("guia_turistico", true)
             dict.set("hospedagem", true)
             dict.set("cafe_da_manha", true)
+            dict.set("pessoas", [])
         }
         
 

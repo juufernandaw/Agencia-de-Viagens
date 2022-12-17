@@ -227,17 +227,16 @@
 				<ul>
 					<% let viagens = usuarioLogado.viagens %>
 					<% for(var i=0; i < viagens.length; i++) { %>
-						<li><span>1°</span> item</li>
+						<li><span><%= i+1 %></span> Local: <%= viagens[i]["local"] %>
 					<% } %>
-					<!-- <li><span>1°</span> item</li>
-					<li><span>2°</span> item</li>
-					<li><span>3°</span> item</li>
-					<li><span>4°</span> item</li> -->
+
 				</ul>
 			</div>
 			<div class="input-box">
-				<input class="form-control-viagens" placeholder="Deseja adicionar algum usuário a essa viagem? Digite o e-mail dele:" required>
+				<form action="/usuarios/compartilhar" method="POST">
+				<input class="form-control-viagens" name="usuarioCompartilhado" placeholder="Deseja adicionar algum usuário a essa viagem? Digite o e-mail dele:" required>
 				<button class="btn btn-primary text-uppercase" type="submit" style="margin-bottom: 100%; margin-left: 420%; margin-top: -90%;">Adicionar</button>
+				</form>
 			</div>
 		</body>
 		</html>
