@@ -65,10 +65,6 @@ function ehAutenticado(req, res, next){
         res.sendFile(path.join(__dirname+'/frontend/view/login.html'))
     })
 
-    app.get('/minhas_viagens', ehAutenticado, function(req, res){
-        res.sendFile(path.join(__dirname+'/frontend/view/minhas_viagens.html'))
-    })
-
     app.get('/register', function(req, res){
         res.sendFile(path.join(__dirname+'/frontend/view/register.html'))
     })
@@ -133,15 +129,18 @@ function ehAutenticado(req, res, next){
 
 
     app.post('/usuarios/compartilhar', async (req, res) =>{
-
-        const viagem = {$push: {viagens: req.body.viagem}}
         const mail = req.body.usuarioCompartilhado
-        const pessoa = {$push: {pessoas: mail}} 
+        const pss = (req.body.selectViagens)
+        console.log(pss)
+        console.log(pss["pessoas"])
+        const psss = pss.push(mail)
+        const viagem = {$push: {viagens: JSON.stringify(pss)}}
+        const pessoa = {$push: {pessoas: mail}}
         const id = req.user._id
 
         try {
             const updatedPersonAmigo = await Usuario.updateOne({ email: mail }, viagem)
-            const updatePerson = await Usuario.updateOne({ _id: id }, pessoa)
+            const updatedPerson = await Usuario.updateOne({ _id: id }, pessoa)
             if ((updatedPersonAmigo.matchedCount === 0) || (updatedPerson.matchedCount === 0)) {
               res.status(422).json({ message: 'Usuário não encontrado!' })
               return
