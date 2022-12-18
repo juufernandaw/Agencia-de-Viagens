@@ -1,9 +1,3 @@
-/*!
- * Bootstrap v3.3.4 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
@@ -3250,72 +3244,86 @@ table th[class*=col-] {
 }
 
 @import url('https://fonts.googlepics.com/css?family=poppins:300,400');
-*
-{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-#minhas-viagens body
-{
-    /*display: flex;*/
+
+#minhasViagens body {
+    /* //display: flex; */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #f6f6f6;
 }
-#minhas-viagens
-{
+
+#minhasViagens {
     margin-left: 22%;
     margin-right: auto;
     width: 6em;
 }
-.box
-{
+
+.box {
     width: 1000%;
     border-bottom: 20px solid #006E90;
     border-radius: 10px;
     margin-bottom: 70%;
+
 }
-.box h2
-{
-    color:#fff;
+
+@media (max-width:440px) {
+    #minhasViagens {
+        margin-left: 20px;
+        margin-right: 50px;
+    }
+
+    .box {
+        position: relative;
+        margin-right: 50px;
+        width: 300px;
+    }
+}
+
+.box h2 {
+    color: #fff;
     background: #006E90;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: 700;
     border-radius: 10px;
 }
-.box ul
-{
+
+.box ul {
     position: relative;
     background: #fff;
 }
-.box ul li
-{
+
+.box ul li {
     list-style: none;
     padding: 10px;
     width: 100%;
     background: #fff;
-    box-shadow: 0 5px 25px rgba(0,0,0,.1);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
     transition: transform 0.5s;
 }
 .box ul:hover li
 {
- 
+    opacity: 0.2;
 }
-.box ul li:hover
-{
+
+.box ul li:hover {
     transition: scale(1.1);
     z-index: 100;
     background: #006E90;
-    box-shadow: 0 5px 25px rgba(0,0,0,.2);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
     color: #fff;
 
 }
-.box ul li span
-{
+
+.box ul li span {
     width: 20px;
     height: 20px;
     text-align: center;
@@ -3329,8 +3337,8 @@ table th[class*=col-] {
     font-weight: 600;
     transform: translateY(-20px);
 }
-.box ul li:hover span 
-{
+
+.box ul li:hover span {
     background: #fff;
     color: #006E90;
 
@@ -3379,7 +3387,7 @@ output {
     color: #555
 }
 
-.form-control-viagens {
+#formControlViagens {
     display: block;
     width: 540%;
     height: 10%;
@@ -3391,13 +3399,28 @@ output {
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 140%;
+    margin-top: 40%;
+    margin-bottom: 120%;
     margin-left: 220%;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s, text-uppercase-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+@media screen and (max-width:440px) {
+    #formControlViagens {
+        margin: 20px 1000px 20px 0px;
+        width: 400px;
+    }
+
+    /* #btnAddUsuario.btn.btn-primary.text-uppercase{
+        width: 100px;
+        margin-bottom: 500px;
+        background-color: red;
+        
+    } */
 }
 
 .form-control {
@@ -3946,6 +3969,14 @@ textarea.form-group-lg .form-control {
     border-radius: 4px
 }
 
+@media screen and (max-width:440px) {
+    #btnAddUsuario.btn.btn-primary.text-uppercase{
+        width: 50%;
+
+        background-color: #337ab7;
+        margin: -10px 50px 20px;  
+    }
+}
 .btn.active.focus,
 .btn.active:focus,
 .btn.focus,
@@ -5360,6 +5391,14 @@ textarea.input-group-sm>.input-group-btn>.btn {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px
+}
+
+@media(max-width: 440px) {
+    .navbar-toggle {
+        margin-left: 10px;
+        margin-right: 50px;
+    }
+
 }
 
 .navbar-toggle:focus {

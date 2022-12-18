@@ -9,7 +9,6 @@
   --gray: #929292;
   --light-gray: #cfcfcf;
   --border-height: 1px;
-  /* esse foi do header pra mudar dps */
   --bg-color: #50888a;
   --text-color: #fff;
   --main-color: #2994bb;
@@ -119,6 +118,8 @@ body {
   position: absolute;
   width: auto;
   top: 65%;
+  object-fit: cover;
+  object-position: bottom;
 }
 
 .login__submit:disabled {
