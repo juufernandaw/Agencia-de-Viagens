@@ -8,18 +8,16 @@ const mongoose = require('mongoose')
 require(path.join(__dirname+'/frontend/model/usuario.js'))
 const Usuario = mongoose.model("users")
 const session = require('express-session')
-const flash = require('connect-flash')
 const passport = require('passport')
 require("./config/auth")(passport)
 
 app.set("view engine", "ejs");
 
+// função do passport para autenticar
 function ehAutenticado(req, res, next){
     if(req.isAuthenticated()){
         return next()
     }
-    //req.flash("error_msg", "Você deve estar logado para entrar aqui") //exibir a mensagem
-    //print("Você deve estar logado para entrar aqui")
     res.redirect("/")
 }
     //Sessão
@@ -30,14 +28,9 @@ function ehAutenticado(req, res, next){
         }))
         app.use(passport.initialize())
         app.use(passport.session())
-        //app.use(flash())
 
         app.use((req,res,next) => {
-            //res.locals.success_msg = req.flash("sucess_msg")
-            //res.locals.error_msg = req.flash("error_msg")
-            //res.locals.error = req.flash("error") //essa msg não tá sendo exibida ainda 
-            res.locals.user = req.user || null //armazena os dados do usuário logado em uma varíavel global
-            
+            res.locals.user = req.user || null
             next()
         })
 
@@ -85,24 +78,21 @@ function ehAutenticado(req, res, next){
         }
 
         if(req.body.senha != req.body.confirmsenha){
-            erros.push({texto: "As senhas não"})
+            erros.push({texto: "As senhas não conferem"})
         }
 
         if(req.body.senha.length < 4){
-            //req.flash("error_msg", "SENHA CURTA")
             erros.push({texto: "Senha muito curta"})
         }
 
         if(erros.length > 0){
             console.log(erros)
-            //res.render("usuarios/cadastar", {erros: erros})
-            //precisamos fazer com que a tela entrar aponte esses erros ao usuario
+
         } else {
             Usuario.findOne({email: req.body.mail}).then((usuario) => {
                 if(usuario){
-                    //req.flash("error_msg", "Já existe um usuário cadastrado com esse email")
+                    console.log("Já existe um usuário cadastrado com esse email")
                     res.redirect("/register")
-                    //exibir a menesagem de erro
                 } else {
                     const novoUsuario = new Usuario({
                         nome: req.body.user,
@@ -114,31 +104,34 @@ function ehAutenticado(req, res, next){
                         res.status(422).json({ message: 'OCORREU UM ERORORRO!' })
                         console.log("Ocorreu um erro ao salvar o usúario"+err)
                     })
-                    //req.flash("success_msg", "Usuário logado com sucesso")
-                    
+                    console.log("Usuário logado com sucesso")
                     res.redirect("/login")
-                    //exibir a mensagem de sucesso
                 }
             }).catch((err) => {
-                //req.flash("error_msg", "Houve um erro ao cadastrar")
-                res.redirect("/register")
-                //exibir a mensagem de erro  
+                console.log("Houve um erro ao cadastrar")
+                res.redirect("/register") 
             })
         }
     })
 
 
     app.post('/usuarios/compartilhar', async (req, res) =>{
-        const mail = req.body.usuarioCompartilhado
-        const pss = JSON.parse(req.body.selectViagens)
-        const pessoas = pss["pessoas"].push(mail)
-        const viagem = {$push: {viagens: JSON.stringify(pss)}}
-        const pessoa = {$push: {pessoas: mail}}
-        const id = req.user._id
+        
+        const id = req.user._id // id do usuario atual
+        const mail_userAtual = req.user.email // email do usuario atual
+        const mail = req.body.usuarioCompartilhado // email do usuario a ser compartilhada a viagem
+        const obj_viagem = JSON.parse(req.body.selectViagens)  // recuperando e transformando p/ object a viagem 
+        const local_viagem = obj_viagem["local"] // pegando o local da viagem, que é a chave primaria
+        const pessoas = obj_viagem["pessoas"].push(mail) // adicionando o email do usuario a ser compartilhado na viagem
+        const pessoas_total = obj_viagem["pessoas"].push(mail_userAtual) // adicionando o email do usuario na viagem
+        const lista_pessoas = []
+        lista_pessoas.push(mail, mail_userAtual)
+        const viagem = {$push: {viagens: obj_viagem}}
 
         try {
+            
+            const updatedPerson = await Usuario.updateOne({ _id: id, "viagens.local": local_viagem }, { $push: { "viagens.$.pessoas" : mail } })
             const updatedPersonAmigo = await Usuario.updateOne({ email: mail }, viagem)
-            const updatedPerson = await Usuario.updateOne({ _id: id }, pessoa)
             if ((updatedPersonAmigo.matchedCount === 0) || (updatedPerson.matchedCount === 0)) {
               res.status(422).json({ message: 'Usuário não encontrado!' })
               return
@@ -167,7 +160,7 @@ function ehAutenticado(req, res, next){
               return
             }
         
-            // req.flash("success_msg", "Usuário atualizado com sucesso")
+            console.log("Usuário atualizado com sucesso")
             res.redirect("/inicio")
           } catch (error) {
             res.status(500).json({ erro: error })
@@ -190,7 +183,7 @@ function ehAutenticado(req, res, next){
             dict.set("guia_turistico", false)
             dict.set("hospedagem", true)
             dict.set("cafe_da_manha", true)
-            dict.set("pessoas", [])
+            dict.set("pessoas", [req.user.email])
         }
 
         else if (v2 != undefined) {
@@ -200,7 +193,7 @@ function ehAutenticado(req, res, next){
             dict.set("guia_turistico", true)
             dict.set("hospedagem", true)
             dict.set("cafe_da_manha", false)
-            dict.set("pessoas", [])
+            dict.set("pessoas", [req.user.email])
         }
 
         else {
@@ -210,7 +203,7 @@ function ehAutenticado(req, res, next){
             dict.set("guia_turistico", true)
             dict.set("hospedagem", true)
             dict.set("cafe_da_manha", true)
-            dict.set("pessoas", [])
+            dict.set("pessoas", [req.user.email])
         }
         
 
@@ -226,7 +219,7 @@ function ehAutenticado(req, res, next){
               return
             }
         
-            // req.flash("success_msg", "Viagem adicionada")
+            console.log("Viagem adicionada")
             res.redirect("/inicio")
           } catch (error) {
             res.status(500).json({ erro: error })
@@ -238,12 +231,10 @@ function ehAutenticado(req, res, next){
         passport.authenticate("local", {
             successRedirect: "/inicio",
             failureRedirect: "/login"
-            //fazer as mensagens de erro 
         })(req, res, next)
     })
 
-//MongoDB
-// Credenciais
+//MongoDB 
     const dbUser = process.env.DB_USER
     const dbPassword = process.env.DB_PASS
     mongoose.Promise = global.Promise
@@ -258,4 +249,4 @@ function ehAutenticado(req, res, next){
 const PORT = 3000
 app.listen(PORT, function(){
     console.log("Servidor rodando!")
-})
+}) 

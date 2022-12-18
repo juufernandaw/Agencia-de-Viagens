@@ -1,7 +1,6 @@
 const localStrategy = require("passport-local").Strategy
 const mongoose = require("mongoose")
 
-//Model de usuário
 require("../frontend/model/usuario")
 const Usuario = mongoose.model("users")
 

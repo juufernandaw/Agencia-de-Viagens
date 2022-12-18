@@ -249,7 +249,10 @@
 					<% for(var i=0; i < viagens.length; i++) { %>
 						<li><span>
 								<%= i+1 %>
-							</span> Local: <%= viagens[i]["local"] %>
+							</span> Local: <%= viagens[i]["local"] %>;
+							Pessoas: <%= viagens[i]["pessoas"] %>;
+							Data Ida: <%= viagens[i]["data_ida"] %>;
+							Data Volta: <%= viagens[i]["data_volta"] %>;
 								<% } %>
 						</li>
 
@@ -261,13 +264,14 @@
 				<select name="selectViagens" class="btn btn-primary text-uppercase">
 
 					<% for(let i=0; i < viagens.length; i++) { %>
-						<option value="<%= JSON.stringify(viagens[i]) %>"> LOCAL: <%= viagens[i]["local"] %> </option>
+						<option value="<%= JSON.stringify(viagens[i]) %>"> LOCAL: <%= viagens[i]["local"]%>  </option>
 						<% } %>
 
 				</select>
-
+				<br> <br>
 				<input class="form-control-viagens" name="usuarioCompartilhado"
 					placeholder="Deseja adicionar algum usuário a essa viagem? Digite o e-mail dele:" required>
+				
 				<button class="btn btn-primary text-uppercase" type="submit"
 					style="margin-bottom: 100%; margin-left: 420%; margin-top: -90%;">Adicionar</button>
 			</form>
