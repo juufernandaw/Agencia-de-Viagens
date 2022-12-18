@@ -3274,11 +3274,9 @@ table th[class*=col-] {
 
 }
 
-
-
 @media (max-width:440px) {
     #minhasViagens {
-         margin-left: 20px;
+        margin-left: 20px;
         margin-right: 50px;
     }
 
@@ -3287,13 +3285,6 @@ table th[class*=col-] {
         margin-right: 50px;
         width: 300px;
     }
-
-    #btn btn-primary text-uppercase {
-        margin-left: 40px;
-        margin-right: 100px;
-        left: 50%;
-    }
-
 }
 
 .box h2 {
@@ -3408,13 +3399,28 @@ output {
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 140%;
+    margin-top: 40%;
+    margin-bottom: 120%;
     margin-left: 220%;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s, text-uppercase-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+@media screen and (max-width:440px) {
+    #formControlViagens {
+        margin: 20px 1000px 20px 0px;
+        width: 400px;
+    }
+
+    /* #btnAddUsuario.btn.btn-primary.text-uppercase{
+        width: 100px;
+        margin-bottom: 500px;
+        background-color: red;
+        
+    } */
 }
 
 .form-control {
@@ -3963,6 +3969,14 @@ textarea.form-group-lg .form-control {
     border-radius: 4px
 }
 
+@media screen and (max-width:440px) {
+    #btnAddUsuario.btn.btn-primary.text-uppercase{
+        width: 50%;
+
+        background-color: #337ab7;
+        margin: -10px 50px 20px;  
+    }
+}
 .btn.active.focus,
 .btn.active:focus,
 .btn.focus,
@@ -5379,9 +5393,10 @@ textarea.input-group-sm>.input-group-btn>.btn {
     border-radius: 4px
 }
 
-@media(min-width: 440px) {
+@media(max-width: 440px) {
     .navbar-toggle {
-        margin-right: 0px;
+        margin-left: 10px;
+        margin-right: 50px;
     }
 
 }
