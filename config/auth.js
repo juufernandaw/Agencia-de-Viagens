@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 require("../frontend/model/usuario")
 const Usuario = mongoose.model("users")
 
-
+// Autenticação
 module.exports = function(passport){
     passport.use(new localStrategy({usernameField: 'mail', passwordField:"senha"}, (email, senha, done) => {
         Usuario.findOne({email: email}).then((usuario) => {
