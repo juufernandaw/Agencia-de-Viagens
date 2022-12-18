@@ -3309,8 +3309,8 @@ table th[class*=col-] {
     box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
     transition: transform 0.5s;
 }
-
-.box ul:hover li {
+.box ul:hover li
+{
     opacity: 0.2;
 }
 
@@ -3320,7 +3320,7 @@ table th[class*=col-] {
     background: #006E90;
     box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
     color: #fff;
-    opacity: 0.2;
+
 }
 
 .box ul li span {

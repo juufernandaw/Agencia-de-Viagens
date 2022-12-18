@@ -1,4 +1,5 @@
 const init = () => {
+    //validação de email
     const validateEmail = (event) => {
         const input = event.currentTarget;
         const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -12,7 +13,7 @@ const init = () => {
             input.nextElementSibling.classList.remove('error');
         }
     }
-
+// Validação de senha
     const validatePassowrd = (event) => {
         const input = event.currentTarget;
 
