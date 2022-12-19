@@ -4,3 +4,4 @@ O projeto consiste em uma aplicação web de uma agência de viagens, que vende 
 Desenvolvido por: Daniel Santos(21203401), Diego Goiana (21202325), Gabriel Guglielmi(21200417) e Julia Werlang(21202333).
 
 http://sonhoserrano.gabriel.gk.vms.ufsc.br:3000/
+Git: https://github.com/juufernandaw/web_project
