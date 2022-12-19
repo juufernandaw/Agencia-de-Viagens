@@ -5,3 +5,5 @@ Desenvolvido por: Daniel Santos(21203401), Diego Goiana (21202325), Gabriel Gugl
 
 http://sonhoserrano.gabriel.gk.vms.ufsc.br:3000/
 Git: https://github.com/juufernandaw/web_project
+Video (drive e Youtube):https://drive.google.com/file/d/164Mu9Gkiuan8mG7-lb9zOwo2wiNn8Oqt/view
+https://www.youtube.com/watch?v=QpPNL43qz6s
